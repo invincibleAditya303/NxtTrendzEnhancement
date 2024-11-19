@@ -61,8 +61,9 @@ order-quantity {
 }
 
 .order-summary-container {
-  height: 5vh;
+  height: 10vh;
   width: 40vw;
+  margin-bottom: 5px;
 }
 
 .confirm-order-text {
@@ -104,12 +105,6 @@ order-quantity {
 
 .highlight {
   background-color: #02307a;
-}
-
-.confirm-text {
-  color: #6adf47;
-  font-size: 18px;
-  font-family: 'Roboto';
 }
 
 .confirm-text {
