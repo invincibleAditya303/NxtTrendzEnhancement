@@ -58,6 +58,13 @@ const CartSummary = () => (
             {close => (
               <>
                 <div className="confirm-order-container">
+                  <button
+                    className="close-button"
+                    type="button"
+                    onClick={() => close()}
+                  >
+                    <MdClose className="close-icon" />
+                  </button>
                   <div className="payment-container">
                     <div className="payment-container">
                       <input
@@ -121,13 +128,12 @@ const CartSummary = () => (
                     </div>
                     <div className="order-summary-container">
                       <p className="confirm-order-text">
-                        Total Items: (
+                        Total Items: 
                         <span className="order-highlight">{orderQuantity}</span>
-                        )
                       </p>
                       <p className="confirm-order-text">
-                        Total Amount: (
-                        <span className="order-highlight">{totalAmount}</span>)
+                        Total Amount: 
+                        <span className="order-highlight">{totalAmount}</span>
                       </p>
                     </div>
                     <button
@@ -142,13 +148,6 @@ const CartSummary = () => (
                       </p>
                     )}
                   </div>
-                  <button
-                    className="close-button"
-                    type="button"
-                    onClick={() => close()}
-                  >
-                    <MdClose className="close-icon" />
-                  </button>
                 </div>
               </>
             )}
