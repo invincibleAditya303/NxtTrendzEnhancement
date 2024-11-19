@@ -15,6 +15,8 @@ import './App.css'
 class App extends Component {
   state = {
     cartList: [],
+    paymentMethod: '',
+    displayMessage: false,
   }
 
   decrementCartItemQuantity = productId => {
@@ -67,6 +69,17 @@ class App extends Component {
     }))
   }
 
+  onChangePaymentMethod = paymentOption => {
+    this.setState({paymentMethod: paymentOption})
+  }
+
+  onClickOrderButton = () => {
+    const {paymentMethod} = this.state
+    if (paymentMethod === 'COD') {
+      this.setState({displayMessage: true})
+    }
+  }
+
   //   TODO: Add your code for remove all cart items, increment cart item quantity, decrement cart item quantity, remove cart item
 
   addCartItem = product => {
@@ -90,17 +103,21 @@ class App extends Component {
   }
 
   render() {
-    const {cartList} = this.state
+    const {cartList, paymentMethod, displayMessage} = this.state
 
     return (
       <CartContext.Provider
         value={{
           cartList,
+          paymentMethod,
+          displayMessage,
           addCartItem: this.addCartItem,
           removeCartItem: this.removeCartItem,
           removeAllCartItems: this.removeAllCartItems,
           incrementCartItemQuantity: this.incrementCartItemQuantity,
           decrementCartItemQuantity: this.decrementCartItemQuantity,
+          onChangePaymentMethod: this.onChangePaymentMethod,
+          onClickOrderButton: this.onClickOrderButton,
         }}
       >
         <Switch>
